@@ -22,7 +22,7 @@ You were provided a menifest to mock a job for data recovery for PostgresSQL dat
 >We want to apply best practises to our code. Turn your implementation into a module.  
     >> 5.1 We'll be able to refrence this module  
     >> 5.2 We'll be able to check outputs  
-    >> 5.3 Write some tests to verify valitiy of your module
+    >> 5.3 Write some tests to verify validity of your module
 
 
 Please provide your solution, comments and corrections in code. You may use terraform (or any framework of your prefrence).

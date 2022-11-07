@@ -1,7 +1,7 @@
 Assignment for MLOps candidates @ VVI - General Motors
 
 - If you have any questions or issues, please create an issue in the Issues tab.
-- If you want to remain descrete to other candidatesm please make sure to create a new github user for this task.
+- If you want to remain discrete to other candidates please make sure to create a new github user for this task.
 
 Story:
 You were provided a menifest to mock a job for data recovery for PostgresSQL database. The code is incomplete and needs some additions and refactoring. Please read the task to the end and decide how you want to approrach the problem after you read all the requirements at least once.

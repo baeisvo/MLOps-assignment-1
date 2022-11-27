@@ -9,6 +9,7 @@ You were provided a menifest to mock a job for data recovery for PostgresSQL dat
 1. add missing resource dependency 
 > The job wants to recover the backups from somewhere, but the target might be missing. Try to make everything as safe and secure as possible (hints: assume that backup is encrypted. Restricion of access is a good idea)  
     >> [?]() Where should do_recover.sh be executed?
+        >>> preferable to run on same network of the target DB and backup for network performance
 
 2. remove secrets from code
 > The code contains hard coded credentials. It would be nice if they would be replaced with refrences, either from an encoded file or auto-generated secret on resource definition (hint: anything goes, feel free to implement anything that makes semse, just make sure to delete the hard coded secrets)
@@ -16,7 +17,11 @@ You were provided a menifest to mock a job for data recovery for PostgresSQL dat
 3. job execution schedule
 > The job is currently is scheduled manually. Business wants to verify that indeed data recovery process is healthy every Sunday.  
     >> [?]() If a job fails in pre-prod, should we still run it in prod? why?  
+        >>> No, pre-prod is supposed to simulate prod therefore if it fails on pre-prod it is likely that it will also fail in prod
     >> [?]() How will you test that recovery was successful?
+        >>> 1. exit code 0 from recovery command 
+            2. try to read some data from recoverDB (maybe get last created object and compare timestamps)
+            3. compare number of items from backup and recovery (cound be a costly operation)
 
 4. add parameters for multi-environment
 > This job will probably run in multiple envs, it might be a good idea to parameterize as much as possible to replace variables with refrences so that the code will be *DRY

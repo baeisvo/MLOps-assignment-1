@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    parameters{
+        choice(name: "environment", choices:['dev','prod' , 'pre-prod'],
+               description: "In which environment to run")
+    }
+    stages {
+        stage('PostgresSQL recovery') {
+            environment {
+                SERVICE_CREDS = credentials('PostgresSQL-username-password')
+            }
+            steps {
+                sh 'python3 job.py ${params.environment}'
+                
+            }
+        }
+    }
+}
